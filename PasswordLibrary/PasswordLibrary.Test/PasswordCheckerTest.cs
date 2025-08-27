@@ -56,7 +56,7 @@ namespace PasswordLibrary.Tests
         [Fact]
         public void AllCriteria_ReturnsStrong()
         {
-            Assert.Equal("STRONG", PasswordChecker.CheckStrength("GoodPassword35!"));
+            Assert.Equal("STRONG", PasswordChecker.CheckStrength("GoodPassword05!"));
         }
     }
 }
