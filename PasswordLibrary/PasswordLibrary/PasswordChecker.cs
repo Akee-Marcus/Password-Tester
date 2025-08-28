@@ -4,8 +4,9 @@
     {
         public static string CheckStrength(string password)
         {
-            if (string.IsNullOrEmpty(password))
-                return "INELIGIBLE";
+            if (string.IsNullOrEmpty(password)) return "INELIGIBLE";
+
+            if (password.Length < 8) return "INELIGIBLE";
 
             bool hasUpper = password.Any(char.IsUpper);
             bool hasLower = password.Any(char.IsLower);
