@@ -6,6 +6,18 @@ namespace PasswordLibrary.Tests
     public class PasswordCheckerTester
     {
         [Fact]
+        public void LessThan8_Ineligible()
+        {
+            Assert.Equal("INELIGIBLE", PasswordChecker.CheckStrength("Pass05!"));
+        }
+
+        [Fact]
+        public void MoreThan8_Eligible()
+        {
+            Assert.Equal("MEDIUM", PasswordChecker.CheckStrength("$teveWasHere"));
+        }
+
+        [Fact]
         public void EmptyPassword_ReturnsIneligible()
         {
             Assert.Equal("INELIGIBLE", PasswordChecker.CheckStrength(""));
@@ -26,13 +38,13 @@ namespace PasswordLibrary.Tests
         [Fact]
         public void OnlyDigits_ReturnsWeak()
         {
-            Assert.Equal("WEAK", PasswordChecker.CheckStrength("12345"));
+            Assert.Equal("WEAK", PasswordChecker.CheckStrength("12345678"));
         }
 
         [Fact]
         public void OnlySymbols_ReturnsWeak()
         {
-            Assert.Equal("WEAK", PasswordChecker.CheckStrength("@#%$%$$"));
+            Assert.Equal("WEAK", PasswordChecker.CheckStrength("@#%$%$$*@"));
         }
 
         [Fact]
