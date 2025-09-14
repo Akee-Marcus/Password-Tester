@@ -70,5 +70,20 @@ namespace PasswordLibrary.Tests
         {
             Assert.Equal("STRONG", PasswordChecker.CheckStrength("GoodPassword05!"));
         }
+        [Fact]
+        public void GenerateUuidV4_ReturnsValidFormat()
+        {
+            string uuid = PasswordChecker.GenerateUuidV4();
+            string pattern = @"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$";
+            Assert.Matches(pattern, uuid);
+        }
+
+        [Fact]
+        public void GenerateUuidV4_ReturnsUniqueValues()
+        {
+            string uuid1 = PasswordChecker.GenerateUuidV4();
+            string uuid2 = PasswordChecker.GenerateUuidV4();
+            Assert.NotEqual(uuid1, uuid2);
+        }
     }
 }
