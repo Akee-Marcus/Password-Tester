@@ -37,6 +37,13 @@
                 _ => "INELIGIBLE"
             };
         }
+
+        /// <summary>
+        /// Generates a random Version 4 UUID.
+        /// This uses random values for all required UUID fields, with the
+        /// version and variant bits set according to RFC 4122.
+        /// </summary>
+        /// <returns>A string representation of the UUID in standard format.</returns>
         public static string GenerateUuidV4()
         {
             return Guid.NewGuid().ToString();
