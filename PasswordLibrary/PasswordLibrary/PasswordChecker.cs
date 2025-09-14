@@ -37,5 +37,9 @@
                 _ => "INELIGIBLE"
             };
         }
+        public static string GenerateUuidV4()
+        {
+            return Guid.NewGuid().ToString();
+        }
     }
 }
